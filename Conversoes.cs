@@ -16,8 +16,16 @@ namespace Calculos
         /// </summary>
         public enum ConversaoTemperatura
         {
-            Nulo = 0;
+            Nulo = 0,
             CelsiusFahrenheit, FahrenheitCelsius
+
+        }
+
+        public enum ConversaoDistancias
+        {
+            Null=0,
+            MetrosMilhas,MilhasMetros
+
 
         }
         /// <summary>
@@ -39,6 +47,19 @@ namespace Calculos
             }
             return -1;
 
+        }
+
+        public static double ConverterDistancias(ConversaoDistancias conversao, double distancia)
+        {
+            if (conversao == ConversaoDistancias.MetrosMilhas)
+                return distancia * 0.0006213712;
+            else if (conversao == ConversaoDistancias.MilhasMetros)
+            {
+                return distancia * 1609.344;
+
+            }
+            else
+                return -1;
         }
     }
 }
